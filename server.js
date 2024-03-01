@@ -1,3 +1,4 @@
+//D:\code\todolist  檔案在此
 //初始測試先用console.log確認環境是否正常
 //console.log ("hello");
 
@@ -151,7 +152,7 @@ req.on('data',chunk=>{
 
 const server = http.createServer(requestListner);
 //啟動並監聽伺服器
-server.listen(3005);
+server.listen(process.env.PORT||3005);
 
 //測試方式 終端機打 node server.js
 //http://localhost:3005/ 確認有無出現Hello
