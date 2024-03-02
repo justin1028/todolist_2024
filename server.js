@@ -27,7 +27,7 @@ req.on('data',chunk=>{
 
 
      if(req.url=="/todos" && req.method =="GET"){
-       res.writeHead(200,{headers});
+       res.writeHead(200,headers);
     
        res.write(JSON.stringify({
                 "status":"success",
@@ -50,7 +50,7 @@ req.on('data',chunk=>{
                            "id":uuidv4()
                     };
                     todos.push(todo);       
-                    res.writeHead(200,{headers});       
+                    res.writeHead(200,headers);       
                     res.write(JSON.stringify({
                          "status":"success",
                          "data":todos
@@ -70,7 +70,7 @@ req.on('data',chunk=>{
      else if(req.url=="/todos" && req.method =="DELETE"){
      //留意此段不用呼叫req.on(） 有網址就可以直接刪除
                todos.length=0; //將陣列清為0
-               res.writeHead(200,{headers});       
+               res.writeHead(200,headers);       
                res.write(JSON.stringify({
                "status":"success",
                "data":todos
@@ -89,7 +89,7 @@ req.on('data',chunk=>{
               //    console.log( element);
                 if (index!==-1){
                     todos.splice(index,1);
-                    res.writeHead(200,{headers});       
+                    res.writeHead(200,headers);       
                     res.write(JSON.stringify({
                     "status":"success",
                     "data":todos
@@ -110,7 +110,7 @@ req.on('data',chunk=>{
                        console.log(index);
                      if (todo !== undefined && index !== -1){
                         todos[index].title = todo;
-                        res.writeHead(200,{headers});       
+                        res.writeHead(200,headers);       
                         res.write(JSON.stringify({
                                  "status":"success",
                                  "data":todos
@@ -133,14 +133,14 @@ req.on('data',chunk=>{
        }       
 
      else if( req.method =="OPTIONS"){
-       res.writeHead(200,{headers});
+       res.writeHead(200,headers);
            //透過 res.end() 可以把想要給瀏覽器的回應寫在這裡
       res.end('Delete Success');
      }
      else{
         console.log(req.url);
        console.log(req.method);
-         res.writeHead(404,{headers});
+         res.writeHead(404,headers);
          res.write(JSON.stringify({
                 "status":"false",
                 "message":"無此網站路由082",
